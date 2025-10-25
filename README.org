@@ -1,0 +1,31 @@
+#+TITLE: ~emacs-log~
+#+AUTHOR: Edward Minnix <egregius313@gmail.com>
+
+#+begin_quote
+[!WARNING] This crate is experimental.
+#+end_quote
+
+This crate is meant to be used in conjunction with the [[https://github.com/ubolonton/emacs-module-rs][~emacs-module-rs~]] crate,
+which provides functionality for writing [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Dynamic-Modules.html][dynamic modules]] in Rust.
+
+The primary purpose of this crate is to provide logging functionality for Emacs modules written in Rust.
+It leverages the popular [[https://crates.io/crates/log][~log~]] crate to offer a flexible and efficient logging system.
+
+* Example Usage
+
+#+begin_src rust
+use emacs::Env;
+
+use log::LevelFilter;
+use emacs_log::{EmacsLogger};
+
+#[emacs_module(name = "emacs-log-example")]
+fn init(env: &Env) -> emacs::Result<()> {
+    let logger = EmacsLogger::new(env, LevelFilter::Info);
+    logger.init()?;
+
+    log::info!("Emacs logger initialized!");
+
+    Ok(())
+}
+#+end_src
