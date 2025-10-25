@@ -2,7 +2,8 @@
 #+AUTHOR: Edward Minnix <egregius313@gmail.com>
 
 #+begin_quote
-[!WARNING] This crate is experimental.
+[!WARNING]
+This crate is experimental.
 #+end_quote
 
 This crate is meant to be used in conjunction with the [[https://github.com/ubolonton/emacs-module-rs][~emacs-module-rs~]] crate,
